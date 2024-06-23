@@ -1,6 +1,17 @@
 {
-  "name": "main",
+  "name": "ui",
+  "version": "0.0.1",
   "private": true,
+  "license": "MIT",
+  "type": "module",
+  "author": {
+    "name": "TheBeeL"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "templates/*"
+  ],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
