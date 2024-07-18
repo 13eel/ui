@@ -19,6 +19,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "dependencies": {
+    "@babel/core": "^7.22.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
     "@typescript-eslint/parser": "^7.13.1",
     "autoprefixer": "^10.4.19",
