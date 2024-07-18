@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./internal-package.json",
+  "compilerOptions": {
+    "composite": false,
+    "inlineSources": false,
+    "moduleResolution": "node"
+  },
+  "exclude": ["node_modules"]
+}
