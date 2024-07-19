@@ -1,17 +1,17 @@
 import { existsSync, promises as fs } from "fs"
 import path from "path"
-import { getConfig } from "@/utils/get-config"
-import { getPackageManager } from "@/utils/get-package-manager"
-import { handleError } from "@/utils/handle-error"
-import { logger } from "@/utils/logger"
+import { getConfig } from "~/utils/get-config"
+import { getPackageManager } from "~/utils/get-package-manager"
+import { handleError } from "~/utils/handle-error"
+import { logger } from "~/utils/logger"
 import {
   fetchTree,
   getItemTargetPath,
   getRegistryBaseColor,
   getRegistryIndex,
   resolveTree,
-} from "@/utils/registry"
-import { transform } from "@/utils/transformers"
+} from "~/utils/registry"
+import { transform } from "~/utils/transformers"
 import chalk from "chalk"
 import { Command } from "commander"
 import { execa } from "execa"

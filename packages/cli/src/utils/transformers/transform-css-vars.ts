@@ -1,5 +1,5 @@
-import { registryBaseColorSchema } from "@/utils/registry/schema"
-import { Transformer } from "@/utils/transformers"
+import { registryBaseColorSchema } from "~/utils/registry/schema"
+import { Transformer } from "~/utils/transformers"
 import { ScriptKind, SyntaxKind } from "ts-morph"
 import { z } from "zod"
 

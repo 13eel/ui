@@ -1,12 +1,12 @@
 import path from "path";
-import { Config } from "@/utils/get-config";
+import { Config } from "~/utils/get-config";
 import {
   registryBaseColorSchema,
   registryIndexSchema,
   registryItemWithContentSchema,
   registryWithContentSchema,
   stylesSchema,
-} from "@/utils/registry/schema";
+} from "~/utils/registry/schema";
 import { HttpsProxyAgent } from "https-proxy-agent";
 import fetch from "node-fetch";
 import { z } from "zod";
@@ -126,7 +126,7 @@ export async function getItemTargetPath(
   }
 
   const [parent, type] = item.type.split(":");
-  if (!(parent in config.resolvedPaths)) {
+  if (!parent || !(parent in config.resolvedPaths) || !type) {
     return null;
   }
 

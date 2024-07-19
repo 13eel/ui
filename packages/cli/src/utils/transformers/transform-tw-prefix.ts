@@ -1,4 +1,4 @@
-import { Transformer } from "@/utils/transformers"
+import { Transformer } from "~/utils/transformers"
 import { SyntaxKind } from "ts-morph"
 
 import { splitClassName } from "./transform-css-vars"

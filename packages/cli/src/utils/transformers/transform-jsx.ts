@@ -1,4 +1,4 @@
-import { type Transformer } from "@/utils/transformers";
+import { type Transformer } from "~/utils/transformers";
 import { transformFromAstSync } from "@babel/core";
 import { ParserOptions, parse } from "@babel/parser";
 // @ts-ignore

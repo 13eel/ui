@@ -9,17 +9,17 @@ import {
   rawConfigSchema,
   resolveConfigPaths,
   type Config,
-} from "@/utils/get-config"
-import { getPackageManager } from "@/utils/get-package-manager"
-import { getProjectConfig, preFlight } from "@/utils/get-project-info"
-import { handleError } from "@/utils/handle-error"
-import { logger } from "@/utils/logger"
+} from "~/utils/get-config"
+import { getPackageManager } from "~/utils/get-package-manager"
+import { getProjectConfig, preFlight } from "~/utils/get-project-info"
+import { handleError } from "~/utils/handle-error"
+import { logger } from "~/utils/logger"
 import {
   getRegistryBaseColor,
   getRegistryBaseColors,
   getRegistryStyles,
-} from "@/utils/registry"
-import * as templates from "@/utils/templates"
+} from "~/utils/registry"
+import * as templates from "~/utils/templates"
 import chalk from "chalk"
 import { Command } from "commander"
 import { execa } from "execa"
@@ -315,7 +315,7 @@ export async function runInit(cwd: string, config: Config) {
       ? path.dirname(resolvedPath)
       : resolvedPath
 
-    // If the utils alias is set to something like "@/lib/utils",
+    // If the utils alias is set to something like "~/lib/utils",
     // assume this is a file and remove the "utils" file name.
     // TODO: In future releases we should add support for individual utils.
     if (key === "utils" && resolvedPath.endsWith("/utils")) {

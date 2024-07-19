@@ -1,4 +1,4 @@
-import { Transformer } from "@/utils/transformers";
+import { Transformer } from "~/utils/transformers";
 
 export const transformImport: Transformer = async ({ sourceFile, config }) => {
   const importDeclarations = sourceFile.getImportDeclarations();
@@ -7,7 +7,7 @@ export const transformImport: Transformer = async ({ sourceFile, config }) => {
     const moduleSpecifier = importDeclaration.getModuleSpecifierValue();
 
     // Replace @/registry/[style] with the components alias.
-    if (moduleSpecifier.startsWith("@/registry/")) {
+    if (moduleSpecifier.startsWith("~/registry/")) {
       if (config.aliases.ui) {
         importDeclaration.setModuleSpecifier(
           moduleSpecifier.replace(/^@\/registry\/[^/]+\/ui/, config.aliases.ui),
@@ -22,8 +22,8 @@ export const transformImport: Transformer = async ({ sourceFile, config }) => {
       }
     }
 
-    // Replace `import { cn } from "@/lib/utils"`
-    if (moduleSpecifier == "@/lib/utils") {
+    // Replace `import { cn } from "~/lib/utils"`
+    if (moduleSpecifier == "~/lib/utils") {
       const namedImports = importDeclaration.getNamedImports();
       const cnImport = namedImports.find((i) => i.getName() === "cn");
       if (cnImport) {

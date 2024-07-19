@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { add } from "@/commands/add"
-import { init } from "@/commands/init"
+import { add } from "~/commands/add"
+import { init } from "~/commands/init"
 import { Command } from "commander"
 
 import { getPackageInfo } from "./utils/get-package-info"
