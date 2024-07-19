@@ -1,6 +1,7 @@
 {
   "extends": "@tooling/tsconfig/cli.json",
   "compilerOptions": {
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
