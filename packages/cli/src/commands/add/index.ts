@@ -1,5 +1,6 @@
 import { existsSync, promises as fs } from "fs";
 import path from "path";
+import { parse } from "@babel/core";
 import chalk from "chalk";
 import { Command } from "commander";
 import { execa } from "execa";
@@ -7,6 +8,7 @@ import ora from "ora";
 import prompts from "prompts";
 import { z } from "zod";
 
+import { parseOptions } from "~/commands/add/parseOptions";
 import { getConfig } from "~/utils/get-config";
 import { getPackageManager } from "~/utils/get-package-manager";
 import { handleError } from "~/utils/handle-error";
@@ -19,20 +21,13 @@ import {
   resolveTree,
 } from "~/utils/registry";
 import { transform } from "~/utils/transformers";
-
-const addOptionsSchema = z.object({
-  components: z.array(z.string()).optional(),
-  yes: z.boolean(),
-  overwrite: z.boolean(),
-  cwd: z.string(),
-  all: z.boolean(),
-  path: z.string().optional(),
-});
+import { addOptionsSchema } from "./addOptionsSchema";
 
 export const add = new Command()
   .name("add")
   .description("add a component to your project")
   .argument("[components...]", "the components to add")
+  // Options
   .option("-y, --yes", "skip confirmation prompt.", true)
   .option("-o, --overwrite", "overwrite existing files.", false)
   .option(
@@ -42,29 +37,13 @@ export const add = new Command()
   )
   .option("-a, --all", "add all available components", false)
   .option("-p, --path <path>", "the path to add the component to.")
+  // Action
   .action(async (components, opts) => {
     try {
-      const options = addOptionsSchema.parse({
+      const { config, cwd, options } = await parseOptions({
         components,
         ...opts,
       });
-
-      const cwd = path.resolve(options.cwd);
-
-      if (!existsSync(cwd)) {
-        logger.error(`The path ${cwd} does not exist. Please try again.`);
-        process.exit(1);
-      }
-
-      const config = await getConfig(cwd);
-      if (!config) {
-        logger.warn(
-          `Configuration is missing. Please run ${chalk.green(
-            `init`,
-          )} to create a components.json file.`,
-        );
-        process.exit(1);
-      }
 
       const registryIndex = await getRegistryIndex();
 
