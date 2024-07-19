@@ -3,7 +3,7 @@ import path from "path";
 import chalk from "chalk";
 
 import { addOptionsSchema } from "~/commands/add/addOptionsSchema";
-import { getConfig } from "~/utils/get-config";
+import { getExistingConfig } from "~/utils/get-config";
 import { logger } from "~/utils/logger";
 
 export async function parseOptions(rawOptions: unknown) {
@@ -15,7 +15,7 @@ export async function parseOptions(rawOptions: unknown) {
     process.exit(1);
   }
 
-  const config = await getConfig(cwd);
+  const config = await getExistingConfig(cwd);
   if (!config) {
     logger.warn(
       `Configuration is missing. Please run ${chalk.green(

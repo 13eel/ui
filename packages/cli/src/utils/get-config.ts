@@ -23,7 +23,6 @@ export const rawConfigSchema = z
     $schema: z.string().optional(),
     style: z.string(),
     rsc: z.coerce.boolean().default(false),
-    tsx: z.coerce.boolean().default(true),
     tailwind: z.object({
       config: z.string(),
       css: z.string(),
@@ -53,7 +52,7 @@ export const configSchema = rawConfigSchema.extend({
 
 export type Config = z.infer<typeof configSchema>;
 
-export async function getConfig(cwd: string) {
+export async function getExistingConfig(cwd: string) {
   const config = await getRawConfig(cwd);
 
   if (!config) {
@@ -69,9 +68,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
 
   if (tsConfig.resultType === "failed") {
     throw new Error(
-      `Failed to load ${config.tsx ? "tsconfig" : "jsconfig"}.json. ${
-        tsConfig.message ?? ""
-      }`.trim(),
+      `Failed to load tsconfig.json. ${tsConfig.message ?? ""}`.trim(),
     );
   }
 

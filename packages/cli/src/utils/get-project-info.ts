@@ -6,7 +6,7 @@ import { loadConfig } from "tsconfig-paths";
 
 import {
   Config,
-  getConfig,
+  getExistingConfig,
   RawConfig,
   resolveConfigPaths,
 } from "~/utils/get-config";
@@ -67,7 +67,7 @@ export async function getTsConfig() {
 
 export async function getProjectConfig(cwd: string): Promise<Config | null> {
   // Check for existing component config.
-  const existingConfig = await getConfig(cwd);
+  const existingConfig = await getExistingConfig(cwd);
   if (existingConfig) {
     return existingConfig;
   }
@@ -85,7 +85,6 @@ export async function getProjectConfig(cwd: string): Promise<Config | null> {
   const config: RawConfig = {
     $schema: "https://ui.shadcn.com/schema.json",
     rsc: ["next-app", "next-app-src"].includes(projectType),
-    tsx: isTsx,
     style: "new-york",
     tailwind: {
       config: isTsx ? "tailwind.config.ts" : "tailwind.config.js",

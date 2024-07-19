@@ -9,7 +9,7 @@ import prompts from "prompts";
 import { z } from "zod";
 
 import { parseOptions } from "~/commands/add/parseOptions";
-import { getConfig } from "~/utils/get-config";
+import { getExistingConfig } from "~/utils/get-config";
 import { getPackageManager } from "~/utils/get-package-manager";
 import { handleError } from "~/utils/handle-error";
 import { logger } from "~/utils/logger";
