@@ -13,7 +13,8 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "release": "standard-version && git push --follow-tags && npm publish"
   },
   "devDependencies": {
     "@ui/prettier-config": "workspace:*",
