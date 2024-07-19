@@ -1,4 +1,5 @@
 import path from "path";
+import { HttpsProxyAgent } from "https-proxy-agent";
 import { Config } from "~/utils/get-config";
 import {
   registryBaseColorSchema,
@@ -7,7 +8,6 @@ import {
   registryWithContentSchema,
   stylesSchema,
 } from "~/utils/registry/schema";
-import { HttpsProxyAgent } from "https-proxy-agent";
 import fetch from "node-fetch";
 import { z } from "zod";
 
