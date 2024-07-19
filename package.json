@@ -6,7 +6,7 @@
     "name": "TheBeeL"
   },
   "engines": {
-    "node": ">=20.15.1"
+    "node": ">=20.11.1"
   },
   "packageManager": "pnpm@9.5.0",
   "scripts": {
@@ -15,22 +15,10 @@
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
-  "dependencies": {
-    "@babel/core": "^7.22.1",
-    "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.4",
-    "tailwindcss-animate": "^1.0.7",
-    "tsx": "^4.15.7"
-  },
   "devDependencies": {
     "@ui/prettier-config": "workspace:*",
-    "@types/node": "^20.14.8",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
     "prettier": "catalog:",
-    "turbo": "^2.0.4",
+    "turbo": "^2.0.6",
     "typescript": "catalog:"
   },
   "prettier": "@ui/prettier-config"

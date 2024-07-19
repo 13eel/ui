@@ -1,9 +1,10 @@
-import { type Transformer } from "~/utils/transformers";
 import { transformFromAstSync } from "@babel/core";
-import { ParserOptions, parse } from "@babel/parser";
+import { parse, ParserOptions } from "@babel/parser";
 // @ts-ignore
 import transformTypescript from "@babel/plugin-transform-typescript";
 import * as recast from "recast";
+
+import { type Transformer } from "~/utils/transformers";
 
 // TODO.
 // I'm using recast for the AST here.

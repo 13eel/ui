@@ -1,5 +1,8 @@
 import path from "path";
 import { HttpsProxyAgent } from "https-proxy-agent";
+import fetch from "node-fetch";
+import { z } from "zod";
+
 import { Config } from "~/utils/get-config";
 import {
   registryBaseColorSchema,
@@ -8,8 +11,6 @@ import {
   registryWithContentSchema,
   stylesSchema,
 } from "~/utils/registry/schema";
-import fetch from "node-fetch";
-import { z } from "zod";
 
 const baseUrl = process.env.COMPONENTS_REGISTRY_URL ?? "https://ui.shadcn.com";
 const agent = process.env.https_proxy

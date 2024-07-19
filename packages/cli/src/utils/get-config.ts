@@ -1,8 +1,9 @@
 import path from "path";
-import { resolveImport } from "~/utils/resolve-import";
 import { cosmiconfig } from "cosmiconfig";
 import { loadConfig } from "tsconfig-paths";
 import { z } from "zod";
+
+import { resolveImport } from "~/utils/resolve-import";
 
 export const DEFAULT_STYLE = "default";
 export const DEFAULT_COMPONENTS = "~/components";
