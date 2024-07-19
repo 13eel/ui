@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@ui/prettier-config": "workspace:*",
-    "@ui/tsconfig": "workspace:*",
+    "@tooling/tsconfig": "workspace:*",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"

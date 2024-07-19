@@ -1,28 +1,19 @@
 {
-  "name": "beel-ui",
+  "name": "@13eel/ui",
   "version": "0.0.1",
   "description": "Add components to your apps.",
+  "private": true,
   "publishConfig": {
-    "access": "public"
-  },
-  "license": "MIT",
-  "author": {
-    "name": "TheBeeL"
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TheBeeL/ui.git",
+    "url": "https://github.com/13eel/ui.git",
     "directory": "packages/cli"
   },
   "files": [
     "dist"
-  ],
-  "keywords": [
-    "components",
-    "ui",
-    "tailwind",
-    "radix-ui",
-    "shadcn"
   ],
   "type": "module",
   "exports": "./dist/index.js",
@@ -39,9 +30,9 @@
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
     "release": "changeset version",
-    "pub:beta": "pnpm build && pnpm publish --no-git-checks --access public --tag beta",
-    "pub:next": "pnpm build && pnpm publish --no-git-checks --access public --tag next",
-    "pub:release": "pnpm build && pnpm publish --access public",
+    "pub:beta": "pnpm build && pnpm publish --no-git-checks --access restricted--tag beta",
+    "pub:next": "pnpm build && pnpm publish --no-git-checks --access restricted -tag next",
+    "pub:release": "pnpm build && pnpm publish --access restricted",
     "test": "vitest run"
   },
   "dependencies": {
@@ -69,7 +60,7 @@
   "devDependencies": {
     "@ui/eslint-config": "workspace:*",
     "@ui/prettier-config": "workspace:*",
-    "@ui/tsconfig": "workspace:",
+    "@tooling/tsconfig": "workspace:",
     "@types/babel__core": "^7.20.1",
     "@types/diff": "^5.0.3",
     "@types/fs-extra": "^11.0.1",

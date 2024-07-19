@@ -1,5 +1,5 @@
 {
-  "extends": "@ui/tsconfig/cli.json",
+  "extends": "@tooling/tsconfig/cli.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

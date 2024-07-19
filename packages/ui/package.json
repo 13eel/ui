@@ -14,7 +14,7 @@
   "devDependencies": {
     "@ui/eslint-config": "workspace:*",
     "@ui/prettier-config": "workspace:*",
-    "@ui/tsconfig": "workspace:*",
+    "@tooling/tsconfig": "workspace:*",
     "@turbo/gen": "^1.12.4",
     "@types/node": "^20.11.24",
     "@types/eslint": "^8.56.5",
